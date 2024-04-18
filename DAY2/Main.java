@@ -16,31 +16,30 @@ public class Main {
         }
     }
 
-    static int[] mergeSortedArray(int[] array_1, int[] array_2){
+    static int[] mergeSortedArray(int[] array_1, int[] array_2) {
         int i = 0, j = 0, k = 0;
         int n1 = array_1.length;
         int n2 = array_2.length;
         int[] mergedArray = new int[array_1.length + array_2.length];
         while (i < n1 && j < n2) {
-            if(array_1[i] < array_2[j]){
+            if (array_1[i] < array_2[j]) {
                 mergedArray[k] = array_1[i];
                 k++;
                 i++;
-            }
-            else{
+            } else {
                 mergedArray[k] = array_2[j];
                 k++;
                 j++;
             }
         }
 
-        while(i < n1){
+        while (i < n1) {
             mergedArray[k] = array_1[i];
             k++;
             i++;
         }
 
-        while(j < n2){
+        while (j < n2) {
             mergedArray[k] = array_2[j];
             k++;
             j++;
@@ -48,6 +47,7 @@ public class Main {
 
         return mergedArray;
     }
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         // System.out.print("Enter no.of rows : ");
@@ -233,12 +233,12 @@ public class Main {
         // reverseArray(array, 0, k - 1);
         // reverseArray(array, k, array.length - 1);
         // for (int element : array) {
-        //     System.out.print(element + " ");
+        // System.out.print(element + " ");
         // }
 
-        //Merge Sorted Array
-        int[] array_1 = {1,2,3,4,5};
-        int[] array_2 = {7,9,10};
+        // Merge Sorted Array
+        int[] array_1 = { 1, 2, 3, 4, 5 };
+        int[] array_2 = { 7, 9, 10 };
         int[] result = mergeSortedArray(array_1, array_2);
         System.out.print(Arrays.toString(result));
 

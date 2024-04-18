@@ -1,6 +1,5 @@
 package DAY4;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class CheckPalindrome {
 
