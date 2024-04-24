@@ -2,8 +2,17 @@ package DAY7;
 
 public class Main {
     public static  void main(String[] args){
-        PrivateClass pc = new PrivateClass();
-        pc.getNmber();
+        
+//        PrivateClass pc = new PrivateClass();
+//        int num = pc.getNmber();
+//        System.out.println("number : " + num);
+//        pc.setNum(14);
+//        num = pc.getNmber();
+//        System.out.println("number : " + num);
+
+      ChildClass_2 obj = new ChildClass_2();
+      obj.display();
+
     }
 }
 
@@ -19,3 +28,40 @@ class PrivateClass{
     }
 
 }
+
+interface interfaceClass{
+    String name = "Dhanush";
+    public void display();
+}
+
+
+class ParentClass{
+
+    public ParentClass(){
+        System.out.println("Parent Constructor");
+    }
+
+    public void display(){
+        System.out.println("Parent Class");
+    }
+}
+
+class ChildClass_1 extends ParentClass{
+
+    public ChildClass_1(){
+        super();
+        System.out.println("Child Class 1 Constructor");
+    }
+
+    public void display(){
+        System.out.println("Child class 1");
+    }
+}
+
+class ChildClass_2 extends ParentClass implements interfaceClass{
+
+    public ChildClass_2() {
+        System.out.println("Child Class 2 Constructor");
+    }
+}
+
