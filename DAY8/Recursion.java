@@ -27,6 +27,12 @@ public class Recursion {
         return computeFibonacciOfNumbers(n-1) + computeFibonacciOfNumbers(n-2);
     }
 
+    public static int computeSteps(int n){
+        if(n <= 1)
+            return n;
+        return computeSteps(n-1) + computeSteps(n-2);
+    }
+
 
     public static  void main(String[] args){
 
@@ -36,7 +42,7 @@ public class Recursion {
         System.out.println("Sum of Numbers : " + computeSumOfNumbers(n));
         System.out.println("Factorial of Numbers :" + computeFactorialOfNumbers(n));
         System.out.println("Fibonacci of Numbers : " + computeFibonacciOfNumbers(n));
-
+        System.out.println("Number of Possible Ways : " + computeSteps(n+1));
     }
 
 }

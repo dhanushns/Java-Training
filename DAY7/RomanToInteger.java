@@ -4,25 +4,16 @@ import java.util.Scanner;
 public class RomanToInteger {
 
     public static int getValue(char c){
-        int value = 0;
-        switch(c){
-            case 'I' : value = 1;
-            break;
-            case 'V' : value = 5;
-            break;
-            case 'X' : value = 10;
-            break;
-            case 'L' : value = 50;
-            break;
-            case 'C' : value = 100;
-            break;
-            case 'D' : value = 500;
-            break;
-            case 'M' : value = 1000;
-            break;
-            default: value = -1;
-        }
-        return value;
+        return switch (c) {
+            case 'I' -> 1;
+            case 'V' -> 5;
+            case 'X' -> 10;
+            case 'L' -> 50;
+            case 'C' -> 100;
+            case 'D' -> 500;
+            case 'M' -> 1000;
+            default -> -1;
+        };
     }
 
     public static void main(String[] args){
