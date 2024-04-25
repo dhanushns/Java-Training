@@ -64,4 +64,3 @@ class ChildClass_2 extends ParentClass implements interfaceClass{
         System.out.println("Child Class 2 Constructor");
     }
 }
-
