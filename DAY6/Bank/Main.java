@@ -3,7 +3,7 @@ package DAY6.Bank;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Account[] acc = new Account[10];
         Random rand = new Random();
@@ -11,7 +11,6 @@ public class Main {
         String cmd = "";
         while(!cmd.equals("Exit") && !cmd.equals("exit") && !cmd.equals("3")) {
 
-            System.out.flush();
             System.out.println("*".repeat(20) + " Maariyaman Indian Bank " + "*".repeat(20));
             System.out.println("1.Create New Account");
             System.out.println("2.Open Account");
@@ -21,12 +20,11 @@ public class Main {
 
             if(cmd.equals("1")  || cmd.equals("Create New Account")){
                 acc[accounts] = new Account();
-                //System.out.flush();
                 System.out.println("*".repeat(20) + " Maariyaman Indian Bank " + "*".repeat(20));
                 System.out.println("*".repeat(10) + " Create Account " + "*".repeat(10));
                 System.out.print("Enter your name : ");
                 String name = input.next();
-                System.out.print("Enter the initial deposite amount (min : 500) : ");
+                System.out.print("Enter the initial deposit amount (min : 500) : ");
                 double amount = input.nextDouble();
                 while (amount < 500){
                     System.out.println("The account should have minimum amount od Rs.500");
@@ -51,7 +49,8 @@ public class Main {
                 }
                 if(validUser){
                     String op = "";
-                    while(!op.equals("exit") && !op.equals("5")){
+                    label:
+                    while(!op.equals("exit")){
                         System.out.println("\n\n1.Account Information");
                         System.out.println("2.Deposit");
                         System.out.println("3.Withdraw");
@@ -60,20 +59,27 @@ public class Main {
                         System.out.println("\nHello, " + acc[accNo].name.toUpperCase());
                         System.out.print("\nEnter the value : ");
                         op = input.next();
-                        if(op.equals("1")){
-                            acc[accNo].accountInformation();
-                        } else if (op.equals("2")) {
-                            System.out.print("Enter the amount : ");
-                            double amount = input.nextDouble();
-                            acc[accNo].deposite(amount);
-                        } else if (op.equals("3")) {
-                            System.out.print("Enter the amount : ");
-                            double amount = input.nextDouble();
-                            acc[accNo].withdraw(amount);
-                        } else if (op.equals("4")) {
-                            acc[accNo].checkBalance();
-                        } else if (op.equals("5")) {
-                            break;
+                        switch (op) {
+                            case "1":
+                                acc[accNo].accountInformation();
+                                break;
+                            case "2": {
+                                System.out.print("Enter the amount : ");
+                                double amount = input.nextDouble();
+                                acc[accNo].deposit(amount);
+                                break;
+                            }
+                            case "3": {
+                                System.out.print("Enter the amount : ");
+                                double amount = input.nextDouble();
+                                acc[accNo].withdraw(amount);
+                                break;
+                            }
+                            case "4":
+                                acc[accNo].checkBalance();
+                                break;
+                            case "5":
+                                break label;
                         }
                     }
                 }
@@ -95,14 +101,14 @@ class Account{
         accId = id;
     }
 
-    public void deposite(double amount){
+    public void deposit(double amount){
         balance += amount;
         checkBalance();
     }
 
     public void withdraw(double amount){
         if(amount > balance){
-            System.out.println("\n\n*** Insufficent Balance ***");
+            System.out.println("\n\n*** Insufficient Balance ***");
         }
         else
             balance -= amount;
