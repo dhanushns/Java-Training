@@ -1,4 +1,5 @@
 package Recursion;
+import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.Scanner;
 public class basic{
 
@@ -77,10 +78,25 @@ public class basic{
 //        else{
 //            System.out.println("It is not a sorted array");
 //        }
-        System.out.println("Enter a String : ");
-        String str = input.next();
-        char[] arr =string_op.convertCharArray(str);
-        System.out.println("String Palindrome : " + string_op.isPalindrome(arr));
+//        System.out.println("Enter a String : ");
+//        String str = input.next();
+//        char[] arr =string_op.convertCharArray(str);
+//        System.out.println("String Palindrome : " + string_op.isPalindrome(arr));
+//        System.out.print("Enter value for n (2*2) n = 2 : ");
+//        int dim = input.nextInt();
+//        System.out.println("Enter the target location");
+//        System.out.print("Column Number : ");
+//        int target_col = input.nextInt();
+//        System.out.print("Row Number : ");
+//        int target_row = input.nextInt();
+//        PossiblePath.findPath(dim,0,0,target_row,target_col,"");
+//        System.out.print("Enter the string for SubSequent Print : ");
+//        String sub_seq_str = input.next();
+//        SubSeq.printSubSeq(sub_seq_str,"");
+//        System.out.print("Enter the no.of.Brackets : ");
+//        int n_brackets = input.nextInt();
+//        PossibleBrackets.printBracket(0,0,"",n_brackets);
+        QueenCombination.compute_1D_Array(new boolean[4], 0,0,2,"");
         input.close();
     }
 }
@@ -235,22 +251,81 @@ class string_op extends arrays {
             return false;
         }
     }
-
 }
 
 class PossiblePath {
 
-
-    public static void findPath(int v, int h,String path) {
-        if (h == 2 && v == 2) {
+    public static void findPath(int n,int row, int col,int target_col, int target_row,String path) {
+        if (row == target_col && col == target_row) {
             System.out.println(path);
             return;
         }
-        if(h > 2 || v > 2){
+        if(row > n || col > n){
             return;
         }
-        findPath(v,h+1,path+"H");
-        findPath(v+1,h,path+"V");
+        findPath(n,row,col+1,target_col,target_row,path+"H");
+        findPath(n,row+1,col,target_col,target_row,path+"V");
+    }
+}
+
+class SubSeq{
+
+    public static void printSubSeq(String str,String ans){
+
+        if(str.length() == 0){
+            System.out.println(ans);
+            return;
+        }
+        char ch = str.charAt(0);
+        printSubSeq(str.substring(1),ans + ch);
+        printSubSeq(str.substring(1),ans);
+    }
+}
+
+class PossibleBrackets{
+
+    public static void printBracket(int open, int close, String ans,int n){
+
+        //Base Case ***Important***
+        if(ans.length() == n*2){
+            if(open == close)
+                System.out.println(ans);
+            return;
+        }
+        printBracket(open+1,close,ans + "(",n);
+        if(close < open)
+            printBracket(open,close + 1, ans + ")",n);
     }
 
+    //Another Method (Time and Space Complexity)
+//    public static void printBrackets_2(int open, int close, String ans,int n){
+//        //Base case
+//        if(ans.length() == n*2)
+//            System.out.println(ans);
+//        if(open < n)
+//            printBrackets_2(open + 1,close, ans + "(", n);
+//        if(close < open)
+//            printBrackets_2(open,close + 1, ans + ")",n);
+//    }
+
+}
+
+class QueenCombination{
+
+    public static void compute_1D_Array(boolean[] board, int col, int qpsf, int tar,String ans){
+        if(qpsf == tar){
+            System.out.println(ans);
+            return;
+        }
+        if(col == board.length)
+            return;
+        board[col] = true;
+        compute_1D_Array(board, col+1, qpsf+1, tar, ans + "B" + col);
+        board[col] = false;
+        compute_1D_Array(board,col+1,qpsf,tar,ans);
+    }
+
+    public static void compute_2D_Array(){
+
+    }
 }
