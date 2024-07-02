@@ -1,6 +1,6 @@
 package Trees;
 
-public class TreeBuilder {
+public class BinaryTreeBuilder {
 
     static class Node {
 
@@ -34,8 +34,10 @@ public class TreeBuilder {
 
             int[] dataItems = new int[] {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
             BinaryTree tree = new BinaryTree();
-            Node root = tree.buildBinaryTree(dataItems);
-            System.out.println(root.right.data);
+            Node root = buildBinaryTree(dataItems);
+            if (root != null) {
+                System.out.println(root.right.data);
+            }
         }
 
     }

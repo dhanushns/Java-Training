@@ -1,12 +1,10 @@
 package Problems;
 
-import java.awt.geom.QuadCurve2D;
-import java.lang.invoke.StringConcatException;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Reverse {
+public class Reverse_Queue {
 
     public static Queue<Integer> reverse_k(Queue<Integer> q, int k){
 

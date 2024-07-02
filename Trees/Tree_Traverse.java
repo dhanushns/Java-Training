@@ -1,9 +1,6 @@
 package Trees;
 
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
-
-public class Main {
+public class Tree_Traverse {
 
     public static void main(String[] args) {
 
@@ -26,8 +23,6 @@ public class Main {
         traverse.levelorder(root);
         System.out.print("\nZigZag Level-order : ");
         traverse.zigzag(root);
-        System.out.println("Count : " + traverse.count(root) + " nodes");
-        System.out.println("Sum of Leaf nodes : " + traverse.sumLeafNodes(root,0));
     }
 
 }
