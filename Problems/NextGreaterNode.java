@@ -9,4 +9,3 @@ public class NextGreaterNode {
         System.out.println(list.nextGreaterNodes(node));
     }
 }
-
