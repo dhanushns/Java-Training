@@ -109,11 +109,11 @@ public class ListNode {
     public ArrayList<Integer> nextGreaterNodes(Node head){
         ArrayList<Integer> res = new ArrayList<>();
         Node node = head;
-        int max = 0;
-        boolean flag = false;
-        while(node != null){
-            if(max == node.data) {
+        int max = -1;
+        while (node != null){
+            if(max == node.data){
                 res.add(0);
+                max  = -1;
                 node = node.next;
                 if(node == null)
                     break;
@@ -121,26 +121,23 @@ public class ListNode {
             else if(node.data < max){
                 res.add(max);
                 node = node.next;
+                if(node == null)
+                    break;
+            }
+            else if(node.next == null && max == -1){
+                res.add(0);
+                break;
             }
             Node temp = node.next;
             while(temp != null){
-                if(temp.data > node.data){
-                    res.add(temp.data);
+                if(temp.data >= node.data){
                     max = temp.data;
-                    Node t = temp.next;
-                    while(t != null){
-                        if(t.data > temp.data) {
-                            max = t.data;
-                            break;
-                        }
-                        t = t.next;
-                    }
                     break;
                 }
                 temp = temp.next;
             }
-
-            node = node.next;
+            if(max == -1)
+                max = node.data;
         }
         return res;
     }

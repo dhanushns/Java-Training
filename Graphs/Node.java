@@ -2,11 +2,13 @@ package Graphs;
 
 import java.util.*;
 public class Node {
-    int data;
-    ArrayList<Integer> node = new ArrayList<>();
+    ArrayList<Integer> data = new ArrayList<>();
 
-    Node(int data){
-        this.data = data;
+    Node(){}
+
+    Node(int[] dataItems){
+        for (int dataItem : dataItems)
+            this.data.add(dataItem);
     }
 
 }
