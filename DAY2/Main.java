@@ -171,7 +171,7 @@ public class Main {
         // System.out.println();
         // }
 
-        // Linear Search
+        // // Linear Search
         // System.out.print("Enter no.of.Elements : ");
         // int N = input.nextInt();
         // int[] arrayElements = new int[N];
@@ -225,7 +225,7 @@ public class Main {
         // System.out.print("\nEven Numbers : " + Arrays.toString(evenNumbers));
         // System.out.println("\nOdd Numbers : " + Arrays.toString(oddNumbers));
 
-        // Reverse the array
+        // // Reverse the array
         // int[] array = { 1, 2, 3, 4, 5, 6, 7 };
         // int n = 7;
         // int k = 3;

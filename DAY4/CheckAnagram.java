@@ -11,7 +11,7 @@ public class CheckAnagram{
         // char[] charArray_1 = str1.toCharArray();
         // char[] charArray_2 = str2.toCharArray();
 
-        //Method 1 *** Not Accurate ***
+        // //Method 1 *** Not Accurate ***
         // int sumOfArray_1 = 0, sumOfArray_2 = 0;
         // for(int i = 0 ; i < str1.length() ; i++){
         //     sumOfArray_1 += charArray_1[i];
@@ -23,7 +23,7 @@ public class CheckAnagram{
         // else
         //     return false;
 
-        //Method 2
+        // //Method 2
         /// Arrays.sort(charArray_1);
         // Arrays.sort(charArray_2);
         // if(Arrays.equals(charArray_1, charArray_2))

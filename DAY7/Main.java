@@ -10,8 +10,8 @@ public class Main {
 //        num = pc.getNmber();
 //        System.out.println("number : " + num);
 
-      ChildClass_2 obj = new ChildClass_2();
-      obj.display();
+      ChildClass_1 obj = new ChildClass_1();
+      //obj.display();
 
     }
 }
@@ -41,6 +41,10 @@ class ParentClass{
         System.out.println("Parent Constructor");
     }
 
+    public ParentClass(int a){
+        System.out.println(a);
+    }
+
     public void display(){
         System.out.println("Parent Class");
     }
@@ -49,7 +53,7 @@ class ParentClass{
 class ChildClass_1 extends ParentClass{
 
     public ChildClass_1(){
-        super();
+        super(10);
         System.out.println("Child Class 1 Constructor");
     }
 

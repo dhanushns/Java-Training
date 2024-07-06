@@ -1,7 +1,5 @@
 package JavaLinkedList;
 
-import java.util.SortedMap;
-
 public class LinkedList {
 
     int data;

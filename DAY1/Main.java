@@ -13,7 +13,7 @@ public class Main
         // int reverseDigit = 0;
 		// String str = Integer.toString(num);
 		
-        // Method 1
+        // // Method 1
 		// while(temp != 0){
         //     rem = temp % 10;
         //     reverseDigit = reverseDigit * 10 + rem;
@@ -22,7 +22,7 @@ public class Main
 		// }
 		// System.out.println("Number of Digits : " + count);
 		
-		// Method 2
+		// // Method 2
         // System.out.println("Number of Digits using string : "  + str.length());
 
         // System.out.println("Reversed Digit : " + reverseDigit);
@@ -32,7 +32,7 @@ public class Main
         // else
         //     System.out.println("The given number is not a palindrome");
 
-        // Sum of numbers and Factorial FOR LOOP
+        // // Sum of numbers and Factorial FOR LOOP
 
         // int num = input.nextInt();
         // int sumNumbers = 0;
