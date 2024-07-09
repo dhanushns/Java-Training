@@ -29,8 +29,8 @@ public class MATRIX_01 {
         int left = DFS(mat,row,col-1,step+1);
         int up = 0;
         if(row-1 != -1){
-            if(mat[row][col] != 0)
-                up = mat[row][col] + 1;
+            if(mat[row-1][col] != 0)
+                up = mat[row-1][col] + 1;
         }
         int down = DFS(mat,row+1,col,step+1);
 
