@@ -1,9 +1,6 @@
 package Problems;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class MATRIX_01 {
 
@@ -18,58 +15,81 @@ public class MATRIX_01 {
             return step;
 
         if(mat[row][col] == -1)
-            return 0 ;
+            return 0;
 
         if(mat[row][col] > 1)
             return mat[row][col]+1;
 
         mat[row][col] = -1;
 
+        ArrayList<Integer> directions = new ArrayList<>();
         int right = DFS(mat,row,col+1,step+1);
+        if(right != 0)
+            directions.add(right);
         int left = DFS(mat,row,col-1,step+1);
+        if(left != 0)
+            directions.add(left);
         int up = 0;
         if(row-1 != -1){
-            if(mat[row-1][col] != 0)
-                up = mat[row-1][col] + 1;
+            if(mat[row-1][col] == 0)
+                up = step+1;
+            else if(mat[row-1][col] != -1)
+                up = mat[row-1][col] + step + 1;
         }
+        if(up != 0)
+            directions.add(up);
         int down = DFS(mat,row+1,col,step+1);
+        if(down != 0)
+            directions.add(down);
 
-        return findMininumStep(new int[] {right,left,up,down});
-    }
+        mat[row][col] = 1;
 
-    public static int findMininumStep(int[] distances){
-
-        int min = 0;
-        for(int i = 0 ; i < distances.length; i++)
-            if(distances[i] != 0)
-                min = distances[i];
-
-        for(int i = 0 ; i < distances.length; i++)
-            if(distances[i] < min && distances[i] != 0)
-                min = distances[i];
-
-        return min;
-    }
-
-    public static void refreshMatrix(int[][] mat){
-        for(int i = 0; i < mat.length; i++){
-            for(int j = 0 ; j < mat[i].length; j++){
-                if(mat[i][j] == -1)
-                    mat[i][j] = 1;
-            }
-        }
+        return Collections.min(directions);
     }
 
     public static void main(String[] args) {
-        //int[][] mat = new int[][] {{0,1,0,1,1},{1,1,0,0,1},{0,0,0,1,0},{1,0,1,1,1},{1,0,0,0,1}};
+        //int[][] mat = new int[][] {{0,0,0},{0,1,0},{1,1,1}};
+        int[][] mat = new int[][] {{0,1,0,1,1}
+                                  ,{1,1,0,0,1},
+                                   {0,0,0,1,0},
+                                   {1,0,1,1,1},
+                                   {1,0,0,1,1}};
         Queue<int[]> q = new LinkedList<>();
-        int[][] mat = new int[][] {{0,0,0},{1,1,1},{1,1,1}};
+//        int[][] mat = new int[][] {{0,0,1,0,1,1,1,0,1,1},
+//                                   {1,1,1,1,0,1,1,1,1,1},
+//                                   {1,1,1,1,1,0,0,0,1,1},
+//                                   {1,0,1,0,1,1,1,0,1,1},
+//                                   {0,0,1,1,1,0,1,1,1,1},
+//                                   {1,0,1,1,1,1,1,1,1,1},
+//                                   {1,1,1,1,0,1,0,1,0,1},
+//                                   {0,1,0,0,0,1,0,0,1,1},
+//                                   {1,1,1,0,1,1,0,1,0,1},
+//                                   {1,0,1,1,1,0,1,1,1,0}};
+//        int[][] mat = new int[][] {{1,0,1,1,0,0,1,0,0,1},
+//                                   {0,1,1,0,1,0,1,0,1,1},
+//                                   {0,0,1,0,1,0,0,1,0,0},
+//                                   {1,0,1,0,1,1,1,1,1,1},
+//                                   {0,1,0,1,1,0,0,0,0,1},
+//                                   {0,0,1,0,1,1,1,0,1,0},
+//                                   {0,1,0,1,0,1,0,0,1,1},
+//                                   {1,0,0,0,1,1,1,1,0,1},
+//                                   {1,1,1,1,1,1,1,0,1,0},
+//                                   {1,1,1,1,0,1,0,0,1,1}};
+//        int[][] mat = new int[][] {{1,0,1,0,0,0,1,1,1,1},
+//                                   {1,1,1,0,1,1,1,1,0,1},
+//                                   {1,0,1,1,1,1,0,1,0,0},
+//                                   {1,0,1,1,1,0,1,1,1,1},
+//                                   {1,1,0,1,1,1,1,0,0,0},
+//                                   {1,1,0,0,1,0,1,1,0,1},
+//                                   {1,1,1,1,1,1,1,1,1,1},
+//                                   {1,1,0,0,0,1,1,1,0,0},
+//                                   {0,1,1,1,0,0,1,0,1,1},
+//                                   {1,1,0,0,0,1,0,1,1,0}};
         for(int i = 0 ; i < mat.length; i++){
             for(int j = 0 ; j < mat[i].length; j++){
                 if(mat[i][j] == 1){
                     int steps = DFS(mat,i,j,0);
                     mat[i][j] = steps;
-                    refreshMatrix(mat);
                 }
             }
         }
