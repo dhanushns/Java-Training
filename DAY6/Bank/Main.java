@@ -11,7 +11,7 @@ public class Main {
         String cmd = "";
         while(!cmd.equals("Exit") && !cmd.equals("exit") && !cmd.equals("3")) {
 
-            System.out.println("*".repeat(20) + " Maariyaman Indian Bank " + "*".repeat(20));
+            System.out.println("*".repeat(20) + " Indian Bank " + "*".repeat(20));
             System.out.println("1.Create New Account");
             System.out.println("2.Open Account");
             System.out.println("3.Exit");
@@ -20,7 +20,7 @@ public class Main {
 
             if(cmd.equals("1")  || cmd.equals("Create New Account")){
                 acc[accounts] = new Account();
-                System.out.println("*".repeat(20) + " Maariyaman Indian Bank " + "*".repeat(20));
+                System.out.println("*".repeat(20) + " Indian Bank " + "*".repeat(20));
                 System.out.println("*".repeat(10) + " Create Account " + "*".repeat(10));
                 System.out.print("Enter your name : ");
                 String name = input.next();
