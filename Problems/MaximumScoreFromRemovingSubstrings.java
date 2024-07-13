@@ -1,6 +1,6 @@
-package Recursion;
+package Problems;
 
-import java.util.Arrays;
+import java.util.Scanner;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Stack;
@@ -8,7 +8,7 @@ import java.util.Stack;
 public class MaximumScoreFromRemovingSubstrings {
 
     //Using Recursion (cause : StackOverFlowError larger input size)
-    public static int gain(StringBuilder s, String target, int gainPoint, int points, int idx){
+    public static int recursion(StringBuilder s, String target, int gainPoint, int points, int idx){
 
         if(idx == s.length()-1)
             return points;
@@ -18,32 +18,31 @@ public class MaximumScoreFromRemovingSubstrings {
         if(substr.equals(target)){
             points += gainPoint;
             s.replace(0,s.length(),s.substring(0, idx) + s.substring(idx+2));
-            return gain(s,target,gainPoint,points,0);
+            return recursion(s,target,gainPoint,points,0);
         }
-        return gain(s,target,gainPoint,points,idx+1);
+        return recursion(s,target,gainPoint,points,idx+1);
     }
 
     //Using Stack
     static int points = 0;
-    public static String GreedyMethod(StringBuilder s, String target){
+    public static String GreedyMethod(String s, String target){
 
         Stack<Character> stack = new Stack<>();
+        StringBuilder str = new StringBuilder();
         for(int i = 0 ; i < s.length(); i++){
             if(stack.isEmpty()){
                 stack.push(s.charAt(i));
                 continue;
             }
-            String substr = Character.toString(stack.peek()) + s.charAt(i);
-            if(substr.equals(target))
-                stack.pop();
-            else
-                stack.push(s.charAt(i));
+            else{
+                String substr = Character.toString(stack.peek()) + s.charAt(i);
+                if(substr.equals(target)) stack.pop();
+                else stack.push(s.charAt(i));
+            }
         }
-
-        StringBuilder st = new StringBuilder();
         while(!stack.isEmpty())
-            st.append(stack.pop());
-        return st.reverse().toString();
+            str.append(stack.pop());
+        return str.reverse().toString();
     }
 
     public static int DequqeApproch(StringBuilder s, String target,int gainPoints){
@@ -73,17 +72,23 @@ public class MaximumScoreFromRemovingSubstrings {
 
 
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder("cdbcbbaaabab");
-        int x = 5;
-        int y = 4;
+        Scanner input = new Scanner(System.in);
+        String s = input.next();
+        int x = input.nextInt();
+        int y = input.nextInt();
 //        int points = x > y ? gain(sb,"ab",x,0,0) : gain(sb,"ba",y,0,0);
 //        if(!sb.isEmpty())
 //            points = x < y ? gain(sb,"ab",x,points,0) : gain(sb,"ba",y,points,0);
-        String str1 = x > y ? GreedyMethod(sb,"ab") : null;
-        String str2 = x < y ? null : GreedyMethod(sb,"ba");
-        int p1 = ((sb.length() - str1.length())/2) * x;
-        int p2 = ((sb.length() - str2.length())/2) * y;
-        System.out.println(str1);
+        String s1,s2;
+
+        if(x > y){
+            s1 = GreedyMethod(s,"ab");
+            s2 = GreedyMethod(s1,"ba");
+            System.out.println(((s.length() - s1.length())/2) * x + ((s1.length() - s2.length())/2) * y);
+        }
+        s1 = GreedyMethod(s,"ba");
+        s2 = GreedyMethod(s1,"ab");
+        System.out.println(((s.length() - s1.length())/2) * y + ((s1.length() - s2.length())/2) * x);
     }
 
 }
