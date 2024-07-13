@@ -15,7 +15,7 @@ public class Basic {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String... argos) {
         int[] profit = new int[] {6,100,120};
         int[] weight = new int[] {10,20,30};
         int W = 50;
