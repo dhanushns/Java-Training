@@ -1,6 +1,7 @@
 package Problems;
 
-import java.util.Arrays;
+import javax.xml.transform.Source;
+import java.util.*;
 
 public class Maze {
 
@@ -59,12 +60,71 @@ public class Maze {
         return maze[0][0];
     }
 
+    //Check all four directions and return the path to reach the give destination
+    static boolean isPathFound = false;
+    public static void findPath(String[][] maze,int row,int col,int endRow,int endCol,ArrayList<int[]> paths){
+
+        //Positive base case
+        if(row == endRow && col == endCol) {
+            paths.add(new int[] {row,col});
+            isPathFound = true;
+            return;
+        }
+
+        //Negative base cases...
+        if(row == -1 || col == -1)
+            return;
+
+        if(row == maze.length || col == maze[0].length)
+            return;
+
+        if(maze[row][col].equals("1"))
+            return;
+
+        //Changing the current position as visited
+        maze[row][col] = "1";
+        if(!isPathFound)
+            paths.add(new int [] {row,col});
+
+        findPath(maze,row+1,col,endRow,endCol,paths); //Checking in the down-word direction
+        findPath(maze,row,col+1,endRow,endCol,paths); //Checking in the right direction
+        findPath(maze,row-1,col,endRow,endCol,paths); //Check in the up-word direction
+        findPath(maze,row,col-1,endRow,endCol,paths); //Check in the left direction
+    }
+
+    public static void findPathsToReachDestination(){
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the start position x1 : ");
+        int x1 = input.nextInt();
+        System.out.print("Enter the start position y1 : ");
+        int y1 = input.nextInt();
+        String[][] maze = new String[][] {{"0","0","1","0","0"},{"0","0","0","0","0"},{"0","0","0","1","0"},{"1","1","0","1","1"},{"0","0","0","0","0"}};
+        System.out.print("Enter the Destination x2 : ");
+        int x2 = input.nextInt();
+        System.out.print("Enter the Destination y2 : ");
+        int y2 = input.nextInt();
+
+        ArrayList<int[]> paths = new ArrayList<>();
+        findPath(maze,x1,y1,x2,y2,paths);
+        System.out.print("Paths : ");
+        for(int[] p : paths)
+            System.out.print(Arrays.toString(p) + " ");
+    }
+
     public static void main(String[] args) {
-        maze = new int[3][3];
-        System.out.println(get_possible_ways(0,0,2,2));
-        for(int[] row : maze)
-            System.out.println(Arrays.toString(row));
-        System.out.println(bottom_up(2,2));
+
+
+        // //Maze problem which moves only in two directions either Horizontal or vertical
+//        maze = new int[3][3];
+//        System.out.println(get_possible_ways(0,0,2,2));
+//        for(int[] row : maze)
+//            System.out.println(Arrays.toString(row));
+//        System.out.println(bottom_up(2,2));
+
+        // //Maze problem to reach the given destination by travelling in all four directions from give position
+        findPathsToReachDestination();
+
     }
 
 }
