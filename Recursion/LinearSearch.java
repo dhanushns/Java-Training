@@ -16,7 +16,7 @@ public class LinearSearch {
 
     public static void main(String[] args) {
         int[] n = new int[] {1,2,3,4,5,6,7};
-        System.out.println("Linear Search : " + search(n,5,0));
+        System.out.println("Linear Traversing : " + search(n,5,0));
     }
 
 }
