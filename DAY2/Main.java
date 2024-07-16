@@ -171,7 +171,7 @@ public class Main {
         // System.out.println();
         // }
 
-        // // Linear Search
+        // // Linear Traversing
         // System.out.print("Enter no.of.Elements : ");
         // int N = input.nextInt();
         // int[] arrayElements = new int[N];

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Search {
+public class Traversing {
 
     public static void BFS(ArrayList<ArrayList<Integer>> graph){
         boolean[] visitedNodes = new boolean[graph.size()];
@@ -49,9 +49,9 @@ public class Search {
         graph.add(node5.data);
         graph.add(node6.data);
         System.out.println("Graph data : " + graph);
-        System.out.print("Breath First Search : ");
+        System.out.print("Breath First Traversing : ");
         BFS(graph);
-        System.out.print("\nDepth First Search : ");
+        System.out.print("\nDepth First Traversing : ");
         DFS(graph,0,new boolean[graph.size()]);
     }
 

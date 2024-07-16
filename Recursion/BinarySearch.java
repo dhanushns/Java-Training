@@ -19,7 +19,7 @@ public class BinarySearch {
 
     public static void main(String[] args) {
         int[] n = new int[] {1,2,3,4,5,6,7};
-        System.out.println("Binary Search : " + search(n,6,0,n.length-1,0));
+        System.out.println("Binary Traversing : " + search(n,6,0,n.length-1,0));
     }
 
 }
