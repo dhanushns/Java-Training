@@ -13,8 +13,8 @@ public class IndexesOfSubArraySum {
             return;
         }
 
-        //negative basecase
-        if(sum > target || sum == -1)
+        //negative base case
+        if(sum > target)
             return;
 
         if(pos == arr.length)
@@ -28,8 +28,8 @@ public class IndexesOfSubArraySum {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[] {5,3,4};
-        int s = 2;
+        int[] arr = new int[] {1,2,3,4,5,6,7,8,9,10};
+        int s = 15;
         int n = 5;
         getIndex(arr,0,0,s,new ArrayList<>());
     }
