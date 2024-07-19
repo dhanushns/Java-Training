@@ -59,7 +59,7 @@ public class FindReachAbility {
         for(int i = 0; i < N; i++)
             nodes[i] = input.nextInt();
         HashMap<Integer, ArrayList<Integer>> graph = new HashMap<>();
-        Set<Integer> visiedNodes = new HashSet<>();
+        Set<Integer> visitedNodes = new HashSet<>();
 
         int conn = input.nextInt();
         for(int i = 0 ; i < conn ; i++){
@@ -78,7 +78,7 @@ public class FindReachAbility {
         System.out.println(graph);
 
         //Check the reachability
-        System.out.println(isAbleToCommunicate(graph,2,9,visiedNodes));
+        System.out.println(isAbleToCommunicate(graph,2,9, visitedNodes));
 
     }
 

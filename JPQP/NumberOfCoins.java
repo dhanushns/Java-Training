@@ -27,7 +27,7 @@ public class NumberOfCoins {
     public static void main(String[] args) {
 
         int[] coins = {9,6,5,1};
-        change(coins,0,10,0,new ArrayList<Integer>());
+        change(coins,0,10,0, new ArrayList<>());
 
     }
 

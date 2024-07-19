@@ -38,7 +38,6 @@ public class LargestSumCycle {
             if(!nodeVisited[adjNode])
                 DFS(adjNode,edges,nodeVisited,pathVisited);
             else if(pathVisited[adjNode]){
-
                 int currentNode = adjNode;
                 long curentCycleSum = 0;
                 do{
