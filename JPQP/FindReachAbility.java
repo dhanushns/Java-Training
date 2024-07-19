@@ -21,7 +21,6 @@ public class FindReachAbility {
     }
 
     //React Developers Community Question
-    static boolean reachable = false;
     public static boolean isAbleToCommunicate(HashMap<Integer, ArrayList<Integer>> graph, int source,int destination,Set<Integer> visited){
 
         visited.add(source);
