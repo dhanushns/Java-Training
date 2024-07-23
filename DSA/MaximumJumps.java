@@ -1,0 +1,26 @@
+package DSA;
+
+public class MaximumJumps {
+
+    static int jump(int[] arr, int n, int current_step,int jump_count){
+
+        //positive base case
+        if(current_step >= n-1)
+            return jump_count;
+
+        //Negative base cases
+        if(arr[current_step] == 0)
+            return -1;
+
+        return jump(arr,n, current_step + arr[current_step] ,jump_count+1);
+
+    }
+
+    public static void main(String[] args) {
+
+        int n = 76;
+        int[] arr = new int[] {10,14,29,21,17,4,18,20,18,22,21,14,27,12,3,28,17,0,2,18,8,20,26,16,9,23,25,20,7,27,5,7,16,5,25,11,3,7,2,17,14,6,12,14,23,25,26,5,18,1,6,10,9,12,2,25,29,12,19,4,8,5,8,30,2,22,24,30,7,24,8,15,16,2,11,20};
+        System.out.println(jump(arr,n,0,0));
+    }
+
+}
