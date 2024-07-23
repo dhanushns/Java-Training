@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NumberOfCoins {
 
-    // Only applicable for the combinations of given coins
+    // Only applicable for given coins with frequency 1
     public static void change(int[] coins,int pos, int target, int sum,ArrayList<Integer> c){
 
         if(target == sum) {
@@ -26,7 +26,10 @@ public class NumberOfCoins {
 
     static int MIN_COUNT = Integer.MAX_VALUE;
     public static int countCoins(int[] coins,int pos,int sum,int target,int count){
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30e0c5e7cd769aa02de16c5c13b3894f490dbac0
         //positive base case
         if(sum == target)
             return count;
@@ -42,7 +45,10 @@ public class NumberOfCoins {
         int n2 = countCoins(coins,pos+1,sum,target,count);
 
         return Math.min(n1,n2);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30e0c5e7cd769aa02de16c5c13b3894f490dbac0
     }
 
     public static void main(String[] args) {
