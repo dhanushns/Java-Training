@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NumberOfCoins {
 
-    // Only applicable for the combinations of given coins
+    // Only applicable for given coins with frequency 1
     public static void change(int[] coins,int pos, int target, int sum,ArrayList<Integer> c){
 
         if(target == sum) {
