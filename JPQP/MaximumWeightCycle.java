@@ -15,19 +15,17 @@ public class MaximumWeightCycle {
                     int currentWeight = getMaxWeightCycle(startNode, k,weightSum + map.get(k),totalWeight,nodeVisited_so_far, graph, nodeVisited);
                     if (currentWeight > totalWeight) {
                         totalWeight = currentWeight;
-//                        nodeVisited[k] = false;
-//                        nodeVisited_so_far--;
                     }
                     nodeVisited[k] = false;
                     nodeVisited_so_far--;
                 }
                 else if(startNode == k && nodeVisited_so_far > 1) {
-                    nodeVisited[k] = false;
-                    nodeVisited_so_far--;
                     return weightSum + map.get(k);
                 }
             }
         }
+        nodeVisited[currentNode] = false;
+        nodeVisited_so_far--;
         return totalWeight;
     }
 
