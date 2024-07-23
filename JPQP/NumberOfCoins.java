@@ -1,7 +1,6 @@
 package JPQP;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class NumberOfCoins {
 
@@ -27,11 +26,6 @@ public class NumberOfCoins {
 
     static int MIN_COUNT = Integer.MAX_VALUE;
     public static int countCoins(int[] coins,int pos,int sum,int target,int count){
-
-<<<<<<< HEAD
-        int[] coins = {9,6,5,1};
-        change(coins,0,10,0, new ArrayList<>());
-=======
         //positive base case
         if(sum == target)
             return count;
@@ -47,8 +41,6 @@ public class NumberOfCoins {
         int n2 = countCoins(coins,pos+1,sum,target,count);
 
         return Math.min(n1,n2);
->>>>>>> 0a6ebdc4ec9d672929105b6858faa2158611dd4c
-
     }
 
     public static void main(String[] args) {
