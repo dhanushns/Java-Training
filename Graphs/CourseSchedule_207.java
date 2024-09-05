@@ -1,7 +1,7 @@
 package Graphs;
 import java.util.*;
 
-public class CourseShedule_207 {
+public class CourseSchedule_207 {
 
     static HashSet<Integer> completedCourse = new HashSet<>();
     static HashSet<Integer> taken = new HashSet<>();
